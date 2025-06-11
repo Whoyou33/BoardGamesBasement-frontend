@@ -1,0 +1,24 @@
+<div class="login-container">
+  <mat-card>
+    <mat-card-title>Logowanie</mat-card-title>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" required>
+        <mat-error *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+          Proszę wpisać poprawny email
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Hasło</mat-label>
+        <input matInput type="password" formControlName="password" required>
+        <mat-error *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+          Hasło jest wymagane
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Zaloguj się</button>
+    </form>
+  </mat-card>
+</div>

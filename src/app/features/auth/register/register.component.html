@@ -1,0 +1,40 @@
+<div class="login-container">
+  <mat-card>
+    <mat-card-title>Rejestracja</mat-card-title>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">  
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" required>
+        <mat-error *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched">
+          Proszę wpisać poprawny email
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Hasło</mat-label>
+        <input matInput type="password" formControlName="password" required>
+        <mat-error *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">
+          Hasło jest wymagane
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Powtórz hasło</mat-label>
+        <input matInput type="password" formControlName="repeatedPassword" required>
+        <mat-error *ngIf="registerForm.controls['repeatedPassword'].invalid && registerForm.controls['repeatedPassword'].touched">
+          Hasło jest wymagane
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Rola</mat-label>
+        <mat-select type="mat-select" formControlName="role" required>
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">Zarejestruj się tst</button>
+    </form>
+  </mat-card>
+</div>
